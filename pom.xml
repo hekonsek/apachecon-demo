@@ -126,11 +126,6 @@
                     </env>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>io.jimagezip</groupId>
-                <artifactId>jimagezip-maven-plugin</artifactId>
-                <version>${jimagezip.version}</version>
-            </plugin>
         </plugins>
     </build>
 
