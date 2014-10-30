@@ -15,19 +15,12 @@
  */
 package io.fabric8.quickstarts.java.simple.fatjar;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
-import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
+import org.springframework.boot.SpringApplication;
 
-/**
- * Example of the "main class". Put your bootstrap logic here.
- */
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-        while (true) {
-            System.out.println("Hello Fabric8! Here's your random string: " + randomAlphanumeric(5));
-            SECONDS.sleep(1);
-        }
+        new SpringApplication(Main.class).run(args);
     }
 
 }

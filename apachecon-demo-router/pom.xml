@@ -69,8 +69,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>1.1.8.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-spring-boot</artifactId>
+            <version>2.15-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
@@ -106,6 +112,7 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
@@ -144,40 +151,8 @@
                     </env>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>io.jimagezip</groupId>
-                <artifactId>jimagezip-maven-plugin</artifactId>
-                <version>${jimagezip.version}</version>
-            </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>fusesource.m2</id>
-            <name>FuseSource Community Release Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-        </repository>
-        <repository>
-            <id>fusesource.ea</id>
-            <name>FuseSource Community Early Access Release Repository</name>
-            <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-        </repository>
-    </repositories>
 
     <pluginRepositories>
         <pluginRepository>
@@ -229,25 +204,5 @@
             </build>
         </profile>
 
-        <profile>
-            <id>jimagezip</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>io.jimagezip</groupId>
-                        <artifactId>jimagezip-maven-plugin</artifactId>
-                        <version>${jimagezip.version}</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>build</goal>
-                                </goals>
-                                <phase>package</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
     </profiles>
 </project>
