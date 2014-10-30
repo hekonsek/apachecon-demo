@@ -34,26 +34,22 @@
         <!-- jimagezip properties -->
         <docker.baseImage>fabric8/java</docker.baseImage>
         <docker.env.MAIN>io.fabric8.quickstarts.java.simple.fatjar.Main</docker.env.MAIN>
+        <spring-boot-version>1.1.8.RELEASE</spring-boot-version>
+
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- BOMs -->
             <dependency>
-                <groupId>io.fabric8</groupId>
-                <artifactId>fabric8-project</artifactId>
-                <version>${fabric8.version}</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring-boot-version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-        </dependency>
-    </dependencies>
 
     <repositories>
         <repository>
