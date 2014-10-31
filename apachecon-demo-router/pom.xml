@@ -31,21 +31,10 @@
     <artifactId>apachecon-demo-router</artifactId>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <version.compiler.plugin>2.3.1</version.compiler.plugin>
-        <version.shade.plugin>2.3</version.shade.plugin>
-        <maven.compiler.target>1.7</maven.compiler.target>
-        <maven.compiler.source>1.7</maven.compiler.source>
-
-        <!-- the version of the BOM, defining all the dependency versions -->
         <fabric8.version>2.0.0-SNAPSHOT</fabric8.version>
 
-        <!-- versions for use in mvn plugins as we cannot inherit them from a BOM -->
-        <jimagezip.version>2.0.0-SNAPSHOT</jimagezip.version>
-
         <!-- fabric8 configuration -->
-        <docker.dataImage>${env.DOCKER_REGISTRY}/quickstart/${project.artifactId}:${project.version}</docker.dataImage>
+        <docker.dataImage>${project.groupId}/${project.artifactId}:${project.version}</docker.dataImage>
         <fabric8.port.host.jolokia>9805</fabric8.port.host.jolokia>
         <fabric8.label.container>java</fabric8.label.container>
         <fabric8.label.group>quickstarts</fabric8.label.group>
@@ -143,7 +132,7 @@
                     <mergeData>true</mergeData>
                     <assemblyDescriptorRef>artifact</assemblyDescriptorRef>
                     <env>
-                        <MAIN>io.fabric8.quickstarts.java.simple.fatjar.Main</MAIN>
+                        <JAR>${artifactId}-${version}.jar</JAR>
                     </env>
                 </configuration>
             </plugin>

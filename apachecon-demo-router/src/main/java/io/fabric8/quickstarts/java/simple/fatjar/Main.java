@@ -45,7 +45,7 @@ public class Main {
 
     @Bean
     ConnectionFactory connectionFactory() {
-        return new CachingConnectionFactory(new ActiveMQConnectionFactory("tcp://amqbroker:61616"));
+        return new CachingConnectionFactory(new ActiveMQConnectionFactory("tcp://amqbroker:6162"));
     }
 
 }
