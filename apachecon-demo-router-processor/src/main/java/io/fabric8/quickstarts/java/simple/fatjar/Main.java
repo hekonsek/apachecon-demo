@@ -15,6 +15,7 @@
  */
 package io.fabric8.quickstarts.java.simple.fatjar;
 
+import com.mongodb.MongoClient;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
@@ -24,6 +25,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jms.connection.CachingConnectionFactory;
 
 import javax.jms.ConnectionFactory;
+import java.net.UnknownHostException;
 
 @EnableAutoConfiguration
 public class Main {
@@ -37,8 +39,9 @@ public class Main {
         return new RouteBuilder() {
             @Override
             public void configure() throws Exception {
-                from("netty-http:http://0.0.0.0:18080").
-                        inOnly("jms:invoices").setBody(constant("Received."));
+                from("jms:invoices").
+                        setBody(constant(new Invoice("invoice001", System.currentTimeMillis()))).
+                        to("mongodb:mongo?database=test&collection=invoices&operation=insert");
             }
         };
     }
@@ -46,6 +49,43 @@ public class Main {
     @Bean
     ConnectionFactory connectionFactory() {
         return new CachingConnectionFactory(new ActiveMQConnectionFactory("tcp://amqbroker:6162"));
+    }
+
+    @Bean
+    MongoClient mongo() throws UnknownHostException {
+        return new MongoClient("mongodb");
+    }
+
+}
+
+class Invoice {
+
+    private String invoiceId;
+
+    private long netValue;
+
+    Invoice() {
+    }
+
+    Invoice(String invoiceId, long netValue) {
+        this.invoiceId = invoiceId;
+        this.netValue = netValue;
+    }
+
+    public String getInvoiceId() {
+        return invoiceId;
+    }
+
+    public void setInvoiceId(String invoiceId) {
+        this.invoiceId = invoiceId;
+    }
+
+    public long getNetValue() {
+        return netValue;
+    }
+
+    public void setNetValue(long netValue) {
+        this.netValue = netValue;
     }
 
 }
