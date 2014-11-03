@@ -91,6 +91,7 @@
 
     <modules>
         <module>apachecon-demo-router</module>
+        <module>apachecon-demo-router-processor</module>
     </modules>
 
 </project>
