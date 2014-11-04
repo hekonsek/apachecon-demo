@@ -78,6 +78,11 @@
             <artifactId>camel-mongodb</artifactId>
             <version>2.15-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-groovy</artifactId>
+            <version>2.15-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -40,7 +40,7 @@ public class Main {
             @Override
             public void configure() throws Exception {
                 from("jms:invoices").
-                        setBody(constant(new Invoice("invoice001", System.currentTimeMillis()))).
+                        setBody().groovy("new io.fabric8.quickstarts.java.simple.fatjar.Invoice(request.body, System.currentTimeMillis())").
                         to("mongodb:mongo?database=test&collection=invoices&operation=insert");
             }
         };
