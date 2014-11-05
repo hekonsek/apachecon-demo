@@ -13,5 +13,5 @@ docker run -d -v /tmp/amqbroker:/var/activemq --name amqbroker fabric8/fabric8-m
 mvn clean install -Pdocker-build
 
 # Start containers with Camel routes
-docker run -d -p 18080:18080 --link amqbroker:amqbroker apachecon/apachecon-demo-router:1.0-SNAPSHOT
+docker run -d -p 18080:18080 --link amqbroker:amqbroker apachecon/apachecon-demo-router-inendpoint:1.0-SNAPSHOT
 docker run -d --link mongodb:mongodb --link amqbroker:amqbroker apachecon/apachecon-demo-router-processor:1.0-SNAPSHOT

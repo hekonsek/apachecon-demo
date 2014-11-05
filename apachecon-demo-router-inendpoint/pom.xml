@@ -28,7 +28,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>apachecon-demo-router</artifactId>
+    <artifactId>apachecon-demo-router-inendpoint</artifactId>
 
     <properties>
         <fabric8.version>2.0.0-SNAPSHOT</fabric8.version>
