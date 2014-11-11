@@ -41,7 +41,7 @@
 
         <!-- jimagezip properties -->
         <docker.baseImage>fabric8/java</docker.baseImage>
-        <docker.env.MAIN>io.fabric8.quickstarts.java.simple.fatjar.Main</docker.env.MAIN>
+        <docker.env.MAIN>io.fabric8.quickstarts.java.simple.fatjar.InEndpointRouterConfiguration</docker.env.MAIN>
     </properties>
 
     <dependencies>

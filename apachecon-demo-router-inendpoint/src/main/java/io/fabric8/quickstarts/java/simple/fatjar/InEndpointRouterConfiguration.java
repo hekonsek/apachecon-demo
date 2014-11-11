@@ -16,10 +16,10 @@ import java.util.UUID;
 import static io.fabric8.quickstarts.java.simple.fatjar.RandomUUIDExpression.randomUUID;
 
 @EnableAutoConfiguration
-public class Main {
+public class InEndpointRouterConfiguration {
 
     public static void main(String[] args) throws InterruptedException {
-        new SpringApplication(Main.class).run(args);
+        new SpringApplication(InEndpointRouterConfiguration.class).run(args);
     }
 
     @Bean
