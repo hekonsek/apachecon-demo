@@ -1,4 +1,4 @@
-package io.fabric8.quickstarts.java.simple.fatjar;
+package apachecon.demo.router.inendpoint;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.camel.Exchange;
@@ -13,8 +13,6 @@ import org.springframework.jms.connection.CachingConnectionFactory;
 import javax.jms.ConnectionFactory;
 import java.util.UUID;
 
-import static io.fabric8.quickstarts.java.simple.fatjar.RandomUUIDExpression.randomUUID;
-
 @EnableAutoConfiguration
 public class InEndpointRouterConfiguration {
 
@@ -28,7 +26,7 @@ public class InEndpointRouterConfiguration {
             @Override
             public void configure() throws Exception {
                 from("netty-http:http://0.0.0.0:18080").
-                        setBody(randomUUID()).
+                        setBody(RandomUUIDExpression.randomUUID()).
                         inOnly("jms:invoices");
             }
         };

@@ -41,7 +41,7 @@
 
         <!-- jimagezip properties -->
         <docker.baseImage>fabric8/java</docker.baseImage>
-        <docker.env.MAIN>io.fabric8.quickstarts.java.simple.fatjar.InEndpointRouterConfiguration</docker.env.MAIN>
+        <docker.env.MAIN>apachecon.demo.router.inendpoint.InEndpointRouterConfiguration</docker.env.MAIN>
     </properties>
 
     <dependencies>
@@ -54,7 +54,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-        <groupId>org.apache.camel</groupId>
+            <groupId>org.apache.camel</groupId>
             <artifactId>camel-spring-boot</artifactId>
             <version>2.15-SNAPSHOT</version>
         </dependency>
