@@ -13,7 +13,7 @@
  *  implied.  See the License for the specific language governing
  *  permissions and limitations under the License.
  */
-package io.fabric8.quickstarts.java.simple.fatjar;
+package apachecon.demo.router.inendpoint;
 
 import com.mongodb.MongoClient;
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -28,10 +28,10 @@ import javax.jms.ConnectionFactory;
 import java.net.UnknownHostException;
 
 @EnableAutoConfiguration
-public class Main {
+public class ProcessorRouterConfiguration {
 
     public static void main(String[] args) throws InterruptedException {
-        new SpringApplication(Main.class).run(args);
+        new SpringApplication(ProcessorRouterConfiguration.class).run(args);
     }
 
     @Bean
@@ -40,7 +40,7 @@ public class Main {
             @Override
             public void configure() throws Exception {
                 from("jms:invoices").
-                        setBody().groovy("new io.fabric8.quickstarts.java.simple.fatjar.Invoice(request.body, System.currentTimeMillis())").
+                        setBody().groovy("new apachecon.demo.router.inendpoint.Invoice(request.body, System.currentTimeMillis())").
                         to("mongodb:mongo?database=test&collection=invoices&operation=insert");
             }
         };
