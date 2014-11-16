@@ -73,6 +73,10 @@
             <artifactId>activemq-client</artifactId>
             <version>5.10.0</version>
         </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
