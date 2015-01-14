@@ -1,0 +1,1 @@
+spring.activemq.brokerUrl: tcp://amqbroker:6162

@@ -19,7 +19,7 @@
         <version.compiler.plugin>2.3.1</version.compiler.plugin>
 
         <camel.version>2.15-SNAPSHOT</camel.version>
-        <spring-boot-version>1.1.8.RELEASE</spring-boot-version>
+        <spring-boot-version>1.2.1.RELEASE</spring-boot-version>
     </properties>
 
     <dependencyManagement>
