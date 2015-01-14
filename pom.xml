@@ -15,7 +15,7 @@
         <maven.compiler.target>1.7</maven.compiler.target>
         <maven.compiler.source>1.7</maven.compiler.source>
 
-        <docker.maven.plugin.version>0.9.11</docker.maven.plugin.version>
+        <docker.maven.plugin.version>0.10.5</docker.maven.plugin.version>
         <version.compiler.plugin>2.3.1</version.compiler.plugin>
 
         <camel.version>2.15-SNAPSHOT</camel.version>
@@ -53,5 +53,29 @@
         <module>apachecon-demo-router-inendpoint</module>
         <module>apachecon-demo-router-processor</module>
     </modules>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.jolokia</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${docker.maven.plugin.version}</version>
+                    <configuration>
+                        <images>
+                            <image>
+                                <name>${project.groupId}/${project.artifactId}:${project.version}</name>
+                                <build>
+                                    <from>hekonsek/fatjar:0.0.10-SNAPSHOT</from>
+                                    <assemblyDescriptorRef>artifact</assemblyDescriptorRef>
+                                    <exportDir>/jars</exportDir>
+                                </build>
+                            </image>
+                        </images>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>

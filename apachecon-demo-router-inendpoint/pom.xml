@@ -30,10 +30,6 @@
 
     <artifactId>apachecon-demo-router-inendpoint</artifactId>
 
-    <properties>
-        <docker.dataImage>${project.groupId}/${project.artifactId}:${project.version}</docker.dataImage>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -83,19 +79,9 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.jolokia</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>${docker.maven.plugin.version}</version>
-                <configuration>
-                    <image>fabric8/java</image>
-                    <mergeData>true</mergeData>
-                    <assemblyDescriptorRef>artifact</assemblyDescriptorRef>
-                    <env>
-                        <JAR>${artifactId}-${version}.jar</JAR>
-                    </env>
-                </configuration>
             </plugin>
         </plugins>
     </build>
