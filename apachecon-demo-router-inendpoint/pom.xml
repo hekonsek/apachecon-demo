@@ -94,7 +94,6 @@
                     <plugin>
                         <groupId>org.jolokia</groupId>
                         <artifactId>docker-maven-plugin</artifactId>
-                        <version>${docker.maven.plugin.version}</version>
                         <executions>
                             <execution>
                                 <goals>

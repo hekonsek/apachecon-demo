@@ -15,17 +15,11 @@
  */
 package apachecon.demo.router.inendpoint;
 
-import com.mongodb.MongoClient;
-import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.jms.connection.CachingConnectionFactory;
-
-import javax.jms.ConnectionFactory;
-import java.net.UnknownHostException;
 
 @EnableAutoConfiguration
 public class ProcessorRouterConfiguration {
@@ -46,46 +40,5 @@ public class ProcessorRouterConfiguration {
         };
     }
 
-    @Bean
-    ConnectionFactory connectionFactory() {
-        return new CachingConnectionFactory(new ActiveMQConnectionFactory("tcp://amqbroker:6162"));
-    }
-
-    @Bean
-    MongoClient mongo() throws UnknownHostException {
-        return new MongoClient("mongodb");
-    }
-
 }
 
-class Invoice {
-
-    private String invoiceId;
-
-    private long netValue;
-
-    Invoice() {
-    }
-
-    Invoice(String invoiceId, long netValue) {
-        this.invoiceId = invoiceId;
-        this.netValue = netValue;
-    }
-
-    public String getInvoiceId() {
-        return invoiceId;
-    }
-
-    public void setInvoiceId(String invoiceId) {
-        this.invoiceId = invoiceId;
-    }
-
-    public long getNetValue() {
-        return netValue;
-    }
-
-    public void setNetValue(long netValue) {
-        this.netValue = netValue;
-    }
-
-}
