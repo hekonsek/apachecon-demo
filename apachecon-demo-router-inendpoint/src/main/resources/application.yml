@@ -1,1 +1,3 @@
-spring.activemq.brokerUrl: tcp://amqbroker:6162
+spring:
+  activemq.brokerUrl: tcp://amqbroker:6162
+  main.sources: apachecon.demo.router.inendpoint
