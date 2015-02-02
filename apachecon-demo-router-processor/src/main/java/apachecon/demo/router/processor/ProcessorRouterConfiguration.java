@@ -13,20 +13,16 @@
  *  implied.  See the License for the specific language governing
  *  permissions and limitations under the License.
  */
-package apachecon.demo.router.inendpoint;
+package apachecon.demo.router.processor;
 
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.apache.camel.spring.boot.FatJarRouter;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-@EnableAutoConfiguration
-public class ProcessorRouterConfiguration {
-
-    public static void main(String[] args) throws InterruptedException {
-        new SpringApplication(ProcessorRouterConfiguration.class).run(args);
-    }
+@SpringBootApplication
+public class ProcessorRouterConfiguration extends FatJarRouter {
 
     @Bean
     public RoutesBuilder nettyEndpoint() {
@@ -34,7 +30,7 @@ public class ProcessorRouterConfiguration {
             @Override
             public void configure() throws Exception {
                 from("jms:invoices").
-                        setBody().groovy("new apachecon.demo.router.inendpoint.Invoice(request.body, System.currentTimeMillis())").
+                        setBody().groovy("new apachecon.demo.router.processor.Invoice(request.body, System.currentTimeMillis())").
                         to("mongodb:mongo?database=test&collection=invoices&operation=insert");
             }
         };

@@ -1,4 +1,4 @@
-package apachecon.demo.router.inendpoint;
+package apachecon.demo.router.processor;
 
 public class Invoice {
 

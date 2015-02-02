@@ -3,3 +3,4 @@ spring:
   data.mongodb:
     host: mongodb
     port: 27017
+  main.sources: apachecon.demo.router.processor
