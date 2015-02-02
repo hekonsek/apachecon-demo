@@ -62,27 +62,6 @@
     </modules>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.jolokia</groupId>
-                    <artifactId>docker-maven-plugin</artifactId>
-                    <version>${docker.maven.plugin.version}</version>
-                    <configuration>
-                        <images>
-                            <image>
-                                <name>${project.groupId}/${project.artifactId}:${project.version}</name>
-                                <build>
-                                    <from>hekonsek/fatjar:0.0.10-SNAPSHOT</from>
-                                    <assemblyDescriptorRef>artifact</assemblyDescriptorRef>
-                                    <exportDir>/jars</exportDir>
-                                </build>
-                            </image>
-                        </images>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -96,6 +75,31 @@
                         <goals>
                             <goal>repackage</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jolokia</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>${docker.maven.plugin.version}</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>${project.groupId}/${project.artifactId}:${project.version}</name>
+                            <build>
+                                <from>hekonsek/fatjar:0.0.10-SNAPSHOT</from>
+                                <assemblyDescriptorRef>artifact</assemblyDescriptorRef>
+                                <exportDir>/jars</exportDir>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                        <phase>package</phase>
                     </execution>
                 </executions>
             </plugin>
