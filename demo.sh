@@ -7,7 +7,7 @@ docker rm mongodb
 
 # Start MongoDB server & AMQ broker
 docker run -d -p 27017:27017 --name mongodb dockerfile/mongodb
-docker run -d -v /tmp/amqbroker:/var/activemq --name amqbroker fabric8/fabric8-mq:hk.1
+docker run -d -v /tmp/amqbroker:/var/activemq --name amqbroker fabric8/fabric8-mq:2.0.24
 
 # Build images for Camel routes
 mvn clean install

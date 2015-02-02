@@ -62,7 +62,8 @@
     </modules>
 
     <build>
-        <plugins>
+        <pluginManagement>
+            <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -103,7 +104,8 @@
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>
