@@ -24,7 +24,7 @@ public class ProcessorRouterConfiguration extends FatJarRouter {
     @Override
     public void configure() throws Exception {
         from("jms:invoices").
-                setBody().groovy("new apachecon.demo.router.processor.Invoice(request.body, System.currentTimeMillis())").
+                setBody().groovy("new apachecon.demo.router.processor.Invoice(request.body.toString(), System.currentTimeMillis())").
                 to("mongodb:mongo?database=test&collection=invoices&operation=insert");
     }
 
