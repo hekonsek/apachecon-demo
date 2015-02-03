@@ -30,10 +30,6 @@
 
     <artifactId>apachecon-demo-router-processor</artifactId>
 
-    <properties>
-        <docker.dataImage>${project.groupId}/${project.artifactId}:${project.version}</docker.dataImage>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
