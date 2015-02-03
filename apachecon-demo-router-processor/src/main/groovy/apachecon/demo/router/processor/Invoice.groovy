@@ -1,6 +1,6 @@
-package apachecon.demo.router.processor;
+package apachecon.demo.router.processor
 
-public class Invoice {
+class Invoice {
 
     private String invoiceId;
 
@@ -14,19 +14,19 @@ public class Invoice {
         this.netValue = netValue;
     }
 
-    public String getInvoiceId() {
+    String getInvoiceId() {
         return invoiceId;
     }
 
-    public void setInvoiceId(String invoiceId) {
+    void setInvoiceId(String invoiceId) {
         this.invoiceId = invoiceId;
     }
 
-    public long getNetValue() {
+    long getNetValue() {
         return netValue;
     }
 
-    public void setNetValue(long netValue) {
+    void setNetValue(long netValue) {
         this.netValue = netValue;
     }
 
