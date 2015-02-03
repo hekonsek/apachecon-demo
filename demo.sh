@@ -21,3 +21,5 @@ cowsay Starting microservices...
 # Start containers with Camel routes
 docker run -d -p 18080:18080 --link amqbroker:amqbroker apachecon/apachecon-demo-router-inendpoint:1.0-SNAPSHOT
 docker run -d --link mongodb:mongodb --link amqbroker:amqbroker apachecon/apachecon-demo-router-processor:1.0-SNAPSHOT
+
+cowsay "Demo is up and running. Go get'em tiger!"
